@@ -4,38 +4,75 @@ import { Ionicons } from '@expo/vector-icons';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+//import HomeScreen from '../screens/HomeScreen';
+import CoreScreen from '../screens/CoreScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+//const HomeStack = createStackNavigator({
+  //Home: HomeScreen,
+//});
+
+//HomeStack.navigationOptions = {
+  //tabBarLabel: 'Home',
+  //tabBarIcon: ({ focused }) => (
+    //<TabBarIcon
+      //focused={focused}
+      //name={
+        //Platform.OS === 'ios'
+          //? `ios-information-circle${focused ? '' : '-outline'}`
+          //: 'md-information-circle'
+      //}
+    ///>
+  //),
+//};
+
+const CoreStack = createStackNavigator({
+  Core: CoreScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+CoreStack.navigationOptions = {
+  tabBarLabel: 'Conversations',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-chatboxes${focused ? '' : '-outline'}`
+          : 'ios-chatboxes'
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
+//const LinksStack = createStackNavigator({
+  //Links: LinksScreen,
+//});
+
+//LinksStack.navigationOptions = {
+  //tabBarLabel: 'Links',
+  //tabBarIcon: ({ focused }) => (
+    //<TabBarIcon
+      //focused={focused}
+      //name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+    ///>
+  //),
+//};
+
+const DiscoverStack = createStackNavigator({
   Links: LinksScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+DiscoverStack.navigationOptions = {
+  tabBarLabel: 'Discover',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-search${focused ? '' : '-outline'}`
+          : 'ios-search'
+      }
     />
   ),
 };
@@ -55,7 +92,9 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
+  //HomeStack,
+  CoreStack,
+  //LinksStack,
+  DiscoverStack,
   SettingsStack,
 });
